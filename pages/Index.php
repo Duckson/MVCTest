@@ -8,6 +8,6 @@ class Index extends AbstractPage
     {
 // делаем что угодно, например получаем посты из базы
         $posts = Post::getAll();// это вернёт там массив постов
-        return ['title' => 'Свеживе новости', 'posts' => $posts];
+        return ['title' => 'Свежие новости', 'posts' => $posts];
     }
 }

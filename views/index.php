@@ -1,5 +1,5 @@
 <div class="col-sm-9">
-    <a href=<?=$root . "index.php?page=Make"?>>Добавить новость</a><br>
+    <a href=<?=$_SERVER['DOCUMENT_ROOT'] . "index.php?page=Make"?>>Добавить новость</a><br>
 
     <? foreach ($posts as $news): ?>
         <div class="news">
