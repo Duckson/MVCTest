@@ -7,6 +7,5 @@ class Make extends AbstractPage
     protected function content()
     {
         Post::writePost();
-        return [0, 0];
     }
 }
