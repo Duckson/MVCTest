@@ -5,15 +5,6 @@ date_default_timezone_set("UTC");
 // тут некоторый код, который получает настрокий
 // соединяется с БД
 // и определяет какую страницу надо показать
-if (!isset($_SESSION['news'])) $_SESSION['news'] = [];
-$title = filter_var($_POST["title"], FILTER_SANITIZE_SPECIAL_CHARS);
-$text = filter_var($_POST["text"], FILTER_SANITIZE_SPECIAL_CHARS);
-
-if (!empty($title) && !empty($text))
-    $_SESSION['news'][] = [
-        'title' => $title,
-        'text' => $text
-    ];
 $root = $_SERVER['DOCUMENT_ROOT'];
 require($root . '/model/post.php');
 require($root . '/model/AbstractPage.php');
