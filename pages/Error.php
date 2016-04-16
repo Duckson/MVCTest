@@ -12,8 +12,6 @@ class ErrorPage extends AbstractPage
 
     protected function content()
     {
-// делаем что угодно, например получаем посты из базы
-        $posts = Post::getAll();// это вернёт там массив постов
         return ['title' => 'Ошибка', 'message' => $this->error_message];
     }
 }

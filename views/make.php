@@ -1,0 +1,10 @@
+
+<div class="col-sm-9">
+    <a href="../index.php">Перейти к новостям</a><br>
+    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        Заголовок новости: <input type="text" name="title"><br>
+        Текст новости: <textarea name="text"></textarea><br>
+        <input type="submit">
+    </form>
+    <br>
+</div>

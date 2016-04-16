@@ -9,7 +9,7 @@ abstract class AbstractPage
         // делаем обязательные для каждой страницы действия
         // и далее вызываем рассчёт контента страницы
         $page_data = $this->content();
-        $this->render($view_file, $page_data);
+        $this->render($this->view_file, $page_data);
     }
 
     protected function render($view_file, $page_data)
