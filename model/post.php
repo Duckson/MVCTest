@@ -15,9 +15,14 @@ class Post{
         }
         return $obj_array; // возвращаем массив объектов
     }
-    public static function writePost($title, $text)
+    public static function writePost()
     {
-        $_SESSION['news'][] = [
+        if (!isset($_SESSION['news'])) $_SESSION['news'] = [];
+        $title = filter_var($_POST["title"], FILTER_SANITIZE_SPECIAL_CHARS);
+        $text = filter_var($_POST["text"], FILTER_SANITIZE_SPECIAL_CHARS);
+
+        if (!empty($title) && !empty($text))
+            $_SESSION['news'][] = [
             'title' => $title,
             'text' => $text
         ];

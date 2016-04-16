@@ -6,11 +6,7 @@ class Make extends AbstractPage
 
     protected function content()
     {
-        if (!isset($_SESSION['news'])) $_SESSION['news'] = [];
-        $title = filter_var($_POST["title"], FILTER_SANITIZE_SPECIAL_CHARS);
-        $text = filter_var($_POST["text"], FILTER_SANITIZE_SPECIAL_CHARS);
-
-        if (!empty($title) && !empty($text)) Post::writePost($title, $text);
+        Post::writePost();
         return [0, 0];
     }
 }
