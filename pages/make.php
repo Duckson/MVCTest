@@ -6,8 +6,11 @@ class Make extends AbstractPage
 
     protected function content()
     {
-// делаем что угодно, например получаем посты из базы
-        $posts = Post::getAll();// это вернёт там массив постов
-        return ['title' => 'Свежие новости', 'posts' => $posts];
+        if (!isset($_SESSION['news'])) $_SESSION['news'] = [];
+        $title = filter_var($_POST["title"], FILTER_SANITIZE_SPECIAL_CHARS);
+        $text = filter_var($_POST["text"], FILTER_SANITIZE_SPECIAL_CHARS);
+
+        if (!empty($title) && !empty($text)) Post::writePost($title, $text);
+        return [0, 0];
     }
 }

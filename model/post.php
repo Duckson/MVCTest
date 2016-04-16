@@ -15,4 +15,11 @@ class Post{
         }
         return $obj_array; // возвращаем массив объектов
     }
+    public static function writePost($title, $text)
+    {
+        $_SESSION['news'][] = [
+            'title' => $title,
+            'text' => $text
+        ];
+    }
 }
