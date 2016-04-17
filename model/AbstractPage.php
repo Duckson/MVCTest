@@ -20,6 +20,7 @@ abstract class AbstractPage
         if(is_array($page_data)){
             extract($page_data);
         }
+        echo "<script>console.log(".is_array($page_data).")</script>";
 
         include($_SERVER['DOCUMENT_ROOT'] . '/views/header.php');
         include($_SERVER['DOCUMENT_ROOT'] . $view_file); // подключаем разметку, которая эти переменные использует

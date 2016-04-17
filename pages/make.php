@@ -6,6 +6,7 @@ class Make extends AbstractPage
 
     protected function content()
     {
-        Post::writePost();
+        if (isset($_POST['title']) && isset($_POST['text'])) Post::addPost($_POST["title"],$_POST["text"]);
+
     }
 }

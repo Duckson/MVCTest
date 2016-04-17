@@ -3,8 +3,8 @@
 
     <? foreach ($posts as $news): ?>
         <div class="news">
-            <h3><?= $news->title ?></h3>
-            <p><?= $news->text ?></p>
+            <h3><?= $news['title'] ?></h3>
+            <p><?= $news['text'] ?></p>
         </div>
     <? endforeach ?>
 </div>
