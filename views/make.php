@@ -1,5 +1,5 @@
 <div class="col-sm-9">
-    <?php $page->echoLinks() ?><br>
+    <?php echoLinks('Make') ?><br>
     <form action="<?= htmlspecialchars("index.php?page=Make"); ?>" method="post">
         Заголовок новости: <input type="text" name="title"><br>
         Текст новости: <textarea name="text"></textarea><br>
