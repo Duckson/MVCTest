@@ -49,6 +49,12 @@ class Post
         return $cats;
     }
 
+    public static function Loader($class)
+    {
+        $path = '/pages/';
+
+        include $path.$class.'.php';
+    }
 
     public static function addPost($title, $text, $cat)
     {
@@ -61,6 +67,7 @@ class Post
          * 'title' => $title,
          * 'text' => $text
          * ];**/
+
         $sql = new mysqli('localhost', 'root', 'root', "News");
         $title = filter_var($title, FILTER_SANITIZE_SPECIAL_CHARS);
         $text = filter_var($text, FILTER_SANITIZE_SPECIAL_CHARS);
