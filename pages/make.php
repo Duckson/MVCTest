@@ -3,6 +3,7 @@
 class Make extends AbstractPage
 {
     protected $view_file = '/views/make.php';// говорим какое представление использовать
+    protected $current_page = 'Make';
 
     protected function content()
     {

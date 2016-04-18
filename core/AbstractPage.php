@@ -2,7 +2,8 @@
 
 abstract class AbstractPage
 {
-    protected $view_file; // будет определено позже
+    protected $view_file;
+    protected $current_page;// будет определено позже
 
     public function run()
     {
@@ -11,7 +12,21 @@ abstract class AbstractPage
         $page_data = $this->content();
         $this->render($this->view_file, $page_data);
     }
-    
+
+    public function echoLinks() {
+        var_dump($this->current_page);
+        switch ($this->current_page) {
+            case 'Make':
+                echo "<a href='../index.php?page=Index'>Перейти к новостям</a> <a href='../index.php?page=Cat'>Добавить категорию</a>";
+                break;
+            case "Cat":
+                echo "<a href='../index.php?page=Index'>Перейти к новостям</a> <a href='../index.php?page=Make'>Добавить новость</a>";
+                break;
+            default :
+                echo "<a href='../index.php?page=Cat'>Добавить категорию</a> <a href='../index.php?page=Make'>Добавить новость</a>";
+                break;
+        }
+    }
 
     protected function render($view_file, $page_data)
     {
@@ -21,7 +36,6 @@ abstract class AbstractPage
         if(is_array($page_data)){
             extract($page_data);
         }
-        echo "<script>console.log(".is_array($page_data).")</script>";
 
         include($_SERVER['DOCUMENT_ROOT'] . '/views/header.php');
         include($_SERVER['DOCUMENT_ROOT'] . $view_file); // подключаем разметку, которая эти переменные использует

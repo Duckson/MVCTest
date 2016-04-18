@@ -7,7 +7,7 @@ date_default_timezone_set("UTC");
 // и определяет какую страницу надо показать
 $root = $_SERVER['DOCUMENT_ROOT'];
 require($root . '/model/post.php');
-require($root . '/model/AbstractPage.php');
+require($root . '/core/AbstractPage.php');
 $page = $_GET['page'];
 switch ($page) {
     case 'Make':

@@ -1,5 +1,5 @@
 <div class="col-sm-9">
-    <?php Post::echoLinks('Index') ?><br>
+    <?php $page->echoLinks() ?><br>
 
     <? foreach ($posts as $news): ?>
         <div class="news">

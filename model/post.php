@@ -48,20 +48,6 @@ class Post
         }
         return $cats;
     }
-    
-    public static function echoLinks($page) {
-        switch ($page) {
-            case 'Make':
-                echo "<a href='../index.php?page=Index'>Перейти к новостям</a> <a href='../index.php?page=Cat'>Добавить категорию</a>";
-                break;
-            case "Cat":
-                echo "<a href='../index.php?page=Index'>Перейти к новостям</a> <a href='../index.php?page=Make'>Добавить новость</a>";
-                break;
-            default :
-                echo "<a href='../index.php?page=Cat'>Добавить категорию</a> <a href='../index.php?page=Make'>Добавить новость</a>";
-                break;
-        }
-    }
 
 
     public static function addPost($title, $text, $cat)

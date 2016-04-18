@@ -3,7 +3,8 @@
 class Index extends AbstractPage
 {
     protected $view_file = '/views/index.php';// говорим какое представление использовать
-
+    protected $current_page = 'Index';
+    
     protected function content()
     {
 // делаем что угодно, например получаем посты из базы
