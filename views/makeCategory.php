@@ -1,5 +1,5 @@
 <div class="col-sm-9">
-    <?php echoLinks('Cat') ?><br>
+    <?php $this->echoLinks('Cat') ?><br>
     <form action="<?= htmlspecialchars("index.php?page=Cat"); ?>" method="post">
         Категория: <input type="text" name="category"><br>
         <input type="submit">

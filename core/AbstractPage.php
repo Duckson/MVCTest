@@ -13,6 +13,20 @@ abstract class AbstractPage
         $this->render($this->view_file, $page_data);
     }
 
+    function echoLinks($page)
+    {
+        switch ($page) {
+            case 'Make':
+                echo "<a href='../index.php?page=Index'>Перейти к новостям</a> <a href='../index.php?page=Cat'>Добавить категорию</a>";
+                break;
+            case "Cat":
+                echo "<a href='../index.php?page=Index'>Перейти к новостям</a> <a href='../index.php?page=Make'>Добавить новость</a>";
+                break;
+            default :
+                echo "<a href='../index.php?page=Cat'>Добавить категорию</a> <a href='../index.php?page=Make'>Добавить новость</a>";
+                break;
+        }
+    }
 
     protected function render($view_file, $page_data)
     {
@@ -20,20 +34,6 @@ abstract class AbstractPage
         // это работает так, пусть есть массив $arr=['a'=>123,'b'=>456]
         // extract($arr); Делает так что теперь нам доступны переменные $a и $b
         
-        function echoLinks($page)
-        {
-            switch ($page) {
-                case 'Make':
-                    echo "<a href='../index.php?page=Index'>Перейти к новостям</a> <a href='../index.php?page=Cat'>Добавить категорию</a>";
-                    break;
-                case "Cat":
-                    echo "<a href='../index.php?page=Index'>Перейти к новостям</a> <a href='../index.php?page=Make'>Добавить новость</a>";
-                    break;
-                default :
-                    echo "<a href='../index.php?page=Cat'>Добавить категорию</a> <a href='../index.php?page=Make'>Добавить новость</a>";
-                    break;
-            }
-        }
 
         if (is_array($page_data)) {
             extract($page_data);
