@@ -20,18 +20,51 @@ class Post
         $sql = new mysqli('localhost', 'root', 'root', "News");
         $result = $sql->query("SELECT * FROM News");
         $news = [];
-        while($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $cat_id = $sql->query("SELECT name FROM categories WHERE id='{$row['category']}'");
+            $cat_id = $cat_id->fetch_row()[0];
             $news[] = [
-                'id'=>$row['id'],
-                'title'=>$row['title'],
-                'text'=>$row['text']
+                'id' => $row['id'],
+                'title' => $row['title'],
+                'text' => $row['text'],
+                'category' => $cat_id
             ];
         };
         return $news;
 
     }
 
-    public static function addPost($title, $text)
+    public static function getCategories()
+    {
+        $sql = new mysqli('localhost', 'root', 'root', "News");
+        $result = $sql->query("SELECT * FROM categories ORDER BY id;");
+        var_dump($result);
+        $cats = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $cats[] = [
+                'id' => $row['id'],
+                'name' => $row['name']
+            ];
+        }
+        return $cats;
+    }
+    
+    public static function echoLinks($page) {
+        switch ($page) {
+            case 'Make':
+                echo "<a href='../index.php?page=Index'>Перейти к новостям</a> <a href='../index.php?page=Cat'>Добавить категорию</a>";
+                break;
+            case "Cat":
+                echo "<a href='../index.php?page=Index'>Перейти к новостям</a> <a href='../index.php?page=Make'>Добавить новость</a>";
+                break;
+            default :
+                echo "<a href='../index.php?page=Cat'>Добавить категорию</a> <a href='../index.php?page=Make'>Добавить новость</a>";
+                break;
+        }
+    }
+
+
+    public static function addPost($title, $text, $cat)
     {
         /**if (!isset($_SESSION['news'])) $_SESSION['news'] = [];
          * $title = filter_var($_POST["title"], FILTER_SANITIZE_SPECIAL_CHARS);
@@ -45,8 +78,17 @@ class Post
         $sql = new mysqli('localhost', 'root', 'root', "News");
         $title = filter_var($title, FILTER_SANITIZE_SPECIAL_CHARS);
         $text = filter_var($text, FILTER_SANITIZE_SPECIAL_CHARS);
+        $cat = (int)$cat;
 
-        if (!empty($title) && !empty($text))
-            $sql->query("INSERT INTO news(title, text) VALUES('$title', '$text')");
+        if (!empty($title) && !empty($text) && !empty($cat)) {
+
+            $sql->query("INSERT INTO news(title, text, category) VALUES('$title', '$text', '$cat')");
+        }
+    }
+
+    static function addCategory($cat)
+    {
+        $sql = new mysqli('localhost', 'root', 'root', "News");
+        $sql->query("INSERT INTO categories(name) VALUES('$cat')");
     }
 }

@@ -1,0 +1,4 @@
+Herard|TRO789|Suzuki|France|Gendolfina|Fresko|food|500|2015-04-25 14:40
+Bob|MGA789|Mercedes|Latvia|Polaris|Dread|parts|1000|2015-04-26 16:15
+Herard|TRO789|Suzuki|France|Gendolfina|Fresko|food|500|2015-04-25 14:40
+Bob|MGA789|Mercedes|Latvia|Polaris|Dread|parts|1000|2015-04-26 16:15

@@ -15,6 +15,11 @@ switch ($page) {
         $page = new Make();
         $_SESSION['page_title'] = "Make";
         break;
+    case "Cat":
+        include($root . '/pages/MakeCategory.php');
+        $page = new MakeCategory();
+        $_SESSION['page_title'] = "Cat";
+        break;
     default :
         include($root . '/pages/Index.php');
         $page = new Index();

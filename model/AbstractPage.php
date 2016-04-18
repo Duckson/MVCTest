@@ -11,6 +11,7 @@ abstract class AbstractPage
         $page_data = $this->content();
         $this->render($this->view_file, $page_data);
     }
+    
 
     protected function render($view_file, $page_data)
     {
